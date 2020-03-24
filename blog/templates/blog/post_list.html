@@ -7,7 +7,8 @@
                 <p>Опубликовано: {{ post.published_date }}</p>
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr|truncatechars:300 }}</p>
+            <img src="{{ post.image.url}}" alt="{{ post.title }}">
+            <p><big>{{ post.text|linebreaksbr|truncatechars:300 }}</big></p>
         </div>
     {% endfor %}
 {% endblock %}

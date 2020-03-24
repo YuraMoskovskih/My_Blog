@@ -11,7 +11,8 @@
             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <img src="{{ post.image.url}}" alt="{{ post.title }}">
+        <p><big>{{ post.text|linebreaksbr }}</big></p>
         <br>{% for comment in comments %}
           <div class="comment">
             <p class="info">
