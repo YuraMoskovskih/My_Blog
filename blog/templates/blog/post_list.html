@@ -6,17 +6,11 @@
             <div class="date">
                 <p>Опубликовано: {{ post.published_date }}</p>
             </div>
-<<<<<<< HEAD
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <img src="{{ post.image.url}}" alt="{{ post.title }}">
-            <p><br><big>{{ post.text|linebreaksbr|truncatechars:300 }}</big></p>
-=======
             <h1><p align="center"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p></h1>
             {% if post.image %}
             <img src="{{ post.image.url}}" alt="{{ post.title }}"><br>
             {% endif %}
             <p><big><big><strong>{{ post.text|linebreaksbr|truncatechars:200 }}</strong></big></big></p>
->>>>>>> 07a2dca2f09d468f96a42cf598c8bfc3fcc956b9
         </div>
     {% endfor %}
 {% endblock %}

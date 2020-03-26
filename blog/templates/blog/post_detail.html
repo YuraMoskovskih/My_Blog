@@ -10,17 +10,11 @@
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
-<<<<<<< HEAD
-        <h1>{{ post.title }}</h1>
-        <img src="{{ post.image.url}}" alt="{{ post.title }}">
-        <p><br><big>{{ post.text|linebreaksbr }}</big></p>
-=======
         <h1><p align="center">{{ post.title }}</p></h1>
         {% if post.image %}
         <img src="{{ post.image.url}}" alt="{{ post.title }}"><br>
         {% endif %}
         <p><big><big>{{ post.text|linebreaksbr }}</big></big></p>
->>>>>>> 07a2dca2f09d468f96a42cf598c8bfc3fcc956b9
         <br>{% for comment in comments %}
           <div class="comment">
             <p class="info">
