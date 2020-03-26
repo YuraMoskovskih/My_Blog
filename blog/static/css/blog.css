@@ -2,24 +2,39 @@
 .page-header {
     background-color: #4A76A8;
     margin-top: 0;
+<<<<<<< HEAD
     padding: 10px 10px 10px 70px;
+=======
+    padding: 20px 20px 20px 20px;
+>>>>>>> 07a2dca2f09d468f96a42cf598c8bfc3fcc956b9
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
     font-size: 40pt;
     text-decoration: none;
+    text-align: center;
 }
 
 .content {
+<<<<<<< HEAD
     margin-left: 70px;
 }
 
 img {
     width: 730px;
+=======
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    width: 100%;
+>>>>>>> 07a2dca2f09d468f96a42cf598c8bfc3fcc956b9
     height: auto;
     display: block;
-
+    margin: 0 auto;
+    border: 20px;
 }
 
 h1, h2, h3, h4 {
@@ -52,5 +67,3 @@ h1, h2, h3, h4 {
 .post h1 a, .post h1 a:visited {
     color: #000000;
 }
-
-<a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">
