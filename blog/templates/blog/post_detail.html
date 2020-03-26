@@ -12,7 +12,7 @@
         {% endif %}
         <h1>{{ post.title }}</h1>
         <img src="{{ post.image.url}}" alt="{{ post.title }}">
-        <p><big>{{ post.text|linebreaksbr }}</big></p>
+        <p><br><big>{{ post.text|linebreaksbr }}</big></p>
         <br>{% for comment in comments %}
           <div class="comment">
             <p class="info">
