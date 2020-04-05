@@ -14,3 +14,5 @@
         </div>
     {% endfor %}
 {% endblock %}
+{% load bootstrap_pagination %}
+{% bootstrap_paginate page_obj range=2 show_prev_next="false" show_first_last="true" %}
