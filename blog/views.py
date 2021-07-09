@@ -3,10 +3,28 @@ from django.utils import timezone
 from .models import Post, Comment
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm, CommentForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import ListView
 
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    object_list = Post.objects.all()
+    paginator = Paginator(object_list, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # Если страница не является целым числом, поставим первую страницу
+        posts = paginator.page(1)
+    except EmptyPage:
+        # Если страница больше максимальной, доставить последнюю страницу результатов
+        posts = paginator.page(paginator.num_pages)
+    return render(request,
+	          'blog/post_list.html',
+		  {'page': page,
+		   'posts': posts})
+
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
@@ -54,3 +72,9 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+class PostListView(ListView):
+    queryset = Post.objects.all()
+    context_object_name = 'posts'
+    paginate_by = 2
+    template_name = 'blog/post_list.html'

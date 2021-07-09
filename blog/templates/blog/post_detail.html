@@ -14,8 +14,8 @@
         {% if post.image %}
         <img src="{{ post.image.url}}" alt="{{ post.title }}"><br>
         {% endif %}
-        <p><big><big>{{ post.text|linebreaksbr }}</big></big></p>
-        <br>{% for comment in comments %}
+        <p><big>{{ post.text|linebreaksbr }}</big></p>
+        <br><br>{% for comment in comments %}
           <div class="comment">
             <p class="info">
               <strong>Комментарий {{ forloop.counter }} от {{ comment.name }}</strong>
@@ -30,7 +30,7 @@
           <h3>Your comment has been added.</h3>
         {% else %}
           <h3>Добавить комментарий</h3>
-          <form action="." method="Текст">
+          <form action="." method="post">
             {{ comment_form.as_p }}
             {% csrf_token %}
             <p><input type="submit" value="Отправить"></p>

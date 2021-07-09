@@ -1,5 +1,4 @@
 {% load static %}
-{% load bootstrap_pagination %}
 
 <html>
     <head>
@@ -21,7 +20,6 @@
             <div class="row-fluid">
                 <div class="span4">
                     {% block content %}
-                    {% bootstrap_paginate page_obj range=2 show_prev_next="false" show_first_last="true" %}
                     {% endblock %}
                 </div class="span8">
             </div>
